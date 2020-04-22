@@ -8,7 +8,7 @@ then
     echo "       ./go.sh --contracts_dir <tested_contracts_dir>"
     exit -1
 fi
-if [ ! -d $2  ]
+if [ ! -d $2  ]//如何是一个目录的话
 then 
     echo "please check your command, '$2' not exists!"
     echo "example:"
@@ -18,7 +18,7 @@ fi
 
 CONTRACT_DIR=$(cd $2&&pwd)
 
-export CONTRACT_DIR
+export CONTRACT_DIR //设置环境变量
 echo "Testing contracts from " $CONTRACT_DIR
 nohup ./geth_run.sh>>$CONTRACT_DIR/fuzzer/reporter/geth_run.log 2>&1 &
 sleep 60
